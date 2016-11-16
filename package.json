@@ -1,0 +1,17 @@
+{
+  "name": "SensingMouse",
+  "version": "1.0.0",
+  "description": "Project OWL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "naoki-ma",
+  "license": "ISC",
+  "dependencies": {
+    "noble-device": "^1.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.10.2"
+  }
+}
