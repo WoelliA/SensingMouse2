@@ -2,18 +2,24 @@
 	"AdvertisementService": "2109d77c582c40380000000000000000",
 	"AccelerationService" : {
 		"Service" : "2109d77c582c40380001000000000000" ,
-		"XAxisCharacteristic" : "2109d77c582c40380001000000000001",
-		"YAxisCharacteristic" : "2109d77c582c40380001000000000002",
-		"ZAxisCharacteristic" : "2109d77c582c40380001000000000003"
+		"Characteristic" : {
+			"XAxis" : "2109d77c582c40380001000000000001",
+			"YAxis" : "2109d77c582c40380001000000000002",
+			"ZAxis" : "2109d77c582c40380001000000000003"
+		}
 	} ,
 	"TemperatureHumidityService" : {
 		"Service" : "2109d77c582c40380002000000000000" ,
-		"HumidityCharacteristic" : "2a6f",
-		"TemperatureCharacteristic" : "2a6e"
+		"Characteristic" : {
+			"Humidity" : "2a6f",
+			"Temperature" : "2a6e"
+		}
 	} ,
 	"HeartRateService" : {
 		"Service" : "180d" ,
-		"MeasurementCharacteristic" : "2a37",
-		"LocationCharacteristic" : "2a38"
+		"Characteristic" : {
+			"Measurement" : "2a37",
+			"Location" : "2a38"
+		}
 	}
 }
