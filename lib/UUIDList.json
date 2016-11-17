@@ -1,7 +1,11 @@
 {
-	"AdvertisementService": "2109d77c582c40380000000000000000",
+	"AdvertisementService": {
+		"UUID" : "2109d77c582c40380000000000000000" ,
+		"Characteristic" : {
+		}
+	} ,
 	"AccelerationService" : {
-		"Service" : "2109d77c582c40380001000000000000" ,
+		"UUID" : "2109d77c582c40380001000000000000" ,
 		"Characteristic" : {
 			"XAxis" : "2109d77c582c40380001000000000001",
 			"YAxis" : "2109d77c582c40380001000000000002",
@@ -9,14 +13,14 @@
 		}
 	} ,
 	"TemperatureHumidityService" : {
-		"Service" : "2109d77c582c40380002000000000000" ,
+		"UUID" : "2109d77c582c40380002000000000000" ,
 		"Characteristic" : {
 			"Humidity" : "2a6f",
 			"Temperature" : "2a6e"
 		}
 	} ,
 	"HeartRateService" : {
-		"Service" : "180d" ,
+		"UUID" : "180d" ,
 		"Characteristic" : {
 			"Measurement" : "2a37",
 			"Location" : "2a38"
