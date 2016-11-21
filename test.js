@@ -6,19 +6,18 @@ sensingMouse.discover((sensingMouse) => {
 
 	sensingMouse.once("disconnect" , () => {
 		console.log("Disconnect");
-		process.exit(1);
+		process.exit(0);
+	});
+
+	sensingMouse.on("XAxisValueChange" , function(x){
+		console.log("Change		X = " , x);
 	});
 
 	async.series([
 		function(callback){
 			sensingMouse.connectAndSetUp(callback);
 		} ,
-		function(callback){
-			sensingMouse.readDeviceName((error , deviceName) => {
-				console.log("Name = " + deviceName);
-				callback();
-			});
-		} ,
+
 		function(callback){
 			sensingMouse.readXAxisValue(function(error , x){
 				console.log("x = " , x);
@@ -26,10 +25,10 @@ sensingMouse.discover((sensingMouse) => {
 			});
 		} ,
 		function(callback){
-			sensingMouse.on("XAxisValueChange" , function(x){
-				console.log("Change		X = " , x);
-				callback();
+			sensingMouse.notifyXAxis(function(error){
+				console.log(error);
 			});
+			callback();
 		}
 	]);
 });
