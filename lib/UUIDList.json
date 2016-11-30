@@ -12,7 +12,7 @@
 			"ZAxis" : "2109d77c582c40380001000000000003"
 		}
 	} ,
-	"TemperatureHumidityService" : {
+	"AM2321Service" : {
 		"UUID" : "2109d77c582c40380002000000000000" ,
 		"Characteristic" : {
 			"Humidity" : "2a6f",
