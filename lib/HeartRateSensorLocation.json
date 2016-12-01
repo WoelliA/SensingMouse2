@@ -1,0 +1,9 @@
+{
+	"Other"		: 0 ,
+	"Chest"		: 1 ,
+	"Wrist"		: 2 ,
+	"Finger"	: 3 ,
+	"Hand"		: 4 ,
+	"Ear_Lobe"	: 5 ,
+	"Foot"		:6
+}
