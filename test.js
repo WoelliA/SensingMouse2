@@ -21,6 +21,14 @@ sensingMouse.discover((sensingMouse) => {
 		console.log("Change		Z = " , z);
 	});
 
+	sensingMouse.on("TemperatureValueChange" , function(value){
+		console.log("Change		Temperature = " , value);
+	});
+
+	sensingMouse.on("HumidityValueChange" , function(value){
+		console.log("Change		Humidity = " , value);
+	});
+
 	async.series([
 		function(callback){
 			sensingMouse.connectAndSetUp(callback);
@@ -44,10 +52,16 @@ sensingMouse.discover((sensingMouse) => {
 			callback();
 		} ,
 		function(callback){
-			sensingMouse.readXAxisValue(function(error , x){
-				console.log("x = " , x);
-				callback();
+			sensingMouse.notifyTemperature(function(error){
+				console.log("Temperature = " + error);
 			});
+			callback();
+		} ,
+		function(callback){
+			sensingMouse.notifyHumidity(function(error){
+				console.log("Humidity = " + error);
+			});
+			callback();
 		}
 	]);
 });
