@@ -10,10 +10,9 @@ sensingMouse.discover((sensingMouse) => {
 	});
 
 	sensingMouse.on("AccelerationValueChange" , function(values){
-		console.log(+new Date());
-		// console.log("Change		X = " + values["x"]);
-		// console.log("Change		Y = " + values["y"]);
-		// console.log("Change		Z = " + values["z"]);
+		console.log("Change		X = " + values["x"]);
+		console.log("Change		Y = " + values["y"]);
+		console.log("Change		Z = " + values["z"]);
 	});
 
 	sensingMouse.on("TemperatureValueChange" , function(value){
