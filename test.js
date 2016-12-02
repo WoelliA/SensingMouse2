@@ -9,16 +9,11 @@ sensingMouse.discover((sensingMouse) => {
 		process.exit(0);
 	});
 
-	sensingMouse.on("XAxisValueChange" , function(x){
-		console.log("Change		X = " + x);
-	});
-
-	sensingMouse.on("YAxisValueChange" , function(y){
-		console.log("Change		Y = " + y);
-	});
-
-	sensingMouse.on("ZAxisValueChange" , function(z){
-		console.log("Change		Z = " + z);
+	sensingMouse.on("AccelerationValueChange" , function(values){
+		console.log(+new Date());
+		// console.log("Change		X = " + values["x"]);
+		// console.log("Change		Y = " + values["y"]);
+		// console.log("Change		Z = " + values["z"]);
 	});
 
 	sensingMouse.on("TemperatureValueChange" , function(value){
@@ -38,11 +33,19 @@ sensingMouse.discover((sensingMouse) => {
 			sensingMouse.connectAndSetUp(callback);
 		} ,
 		function(callback){
-			sensingMouse.notifyXAxis(function(error){
-				console.log("error = " + error);
+			sensingMouse.readAccelerationValue((error , values) => {
+				console.log("Change		X = " + values["x"]);
+				console.log("Change		Y = " + values["y"]);
+				console.log("Change		Z = " + values["z"]);
 			});
 			callback();
 		} ,
+		function(callback){
+			sensingMouse.notifyAcceleration(function(error){
+				console.log("notify Acceleration" + error);
+			});
+			callback();
+		}
 		/*
 		function(callback){
 			sensingMouse.notifyYAxis(function(error){
@@ -68,7 +71,6 @@ sensingMouse.discover((sensingMouse) => {
 			});
 			callback();
 		} ,
-		*/
 		function(callback){
 			sensingMouse.readHeartRateSensorLocation(function(error , location){
 				console.log("Location = " + location);
@@ -81,5 +83,6 @@ sensingMouse.discover((sensingMouse) => {
 			});
 			callback();
 		}
+		*/
 	]);
 });
