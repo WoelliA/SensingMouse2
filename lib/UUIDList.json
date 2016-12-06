@@ -7,16 +7,13 @@
 	"AccelerationService" : {
 		"UUID" : "2109d77c582c40380001000000000000" ,
 		"Characteristic" : {
-			"XAxis" : "2109d77c582c40380001000000000001",
-			"YAxis" : "2109d77c582c40380001000000000002",
-			"ZAxis" : "2109d77c582c40380001000000000003"
+			"Measurement" : "2109d77c582c40380001000000000001"
 		}
 	} ,
 	"AM2321Service" : {
 		"UUID" : "2109d77c582c40380002000000000000" ,
 		"Characteristic" : {
-			"Humidity" : "2a6f",
-			"Temperature" : "2a6e"
+			"Measurement" : "2109d77c582c40380002000000000001"
 		}
 	} ,
 	"HeartRateService" : {
