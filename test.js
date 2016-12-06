@@ -9,21 +9,18 @@ sensingMouse.discover((sensingMouse) => {
 		process.exit(0);
 	});
 
-	sensingMouse.on("AccelerationValueChange" , function(values){
+	sensingMouse.on("AccelerationValueChange" , (values) => {
 		console.log("Change		X = " + values["x"]);
 		console.log("Change		Y = " + values["y"]);
 		console.log("Change		Z = " + values["z"]);
 	});
 
-	sensingMouse.on("TemperatureValueChange" , function(value){
-		console.log("Change		Temperature = " + value);
+	sensingMouse.on("AM2321ValueChange" , (values) => {
+		console.log("Change		Temperature = " + values["temperature"]);
+		console.log("Change		Humidity = " + values["humidity"]);
 	});
 
-	sensingMouse.on("HumidityValueChange" , function(value){
-		console.log("Change		Humidity = " + value);
-	});
-
-	sensingMouse.on("HeartRateValueChange" , function(value){
+	sensingMouse.on("HeartRateValueChange" , (value) => {
 		console.log("Change		HeartRate = " + value);
 	});
 
@@ -33,55 +30,35 @@ sensingMouse.discover((sensingMouse) => {
 		} ,
 		function(callback){
 			sensingMouse.readAccelerationValue((error , values) => {
-				console.log("Change		X = " + values["x"]);
-				console.log("Change		Y = " + values["y"]);
-				console.log("Change		Z = " + values["z"]);
+				console.log("Change		X = " + values.x);
+				console.log("Change		Y = " + values.y);
+				console.log("Change		Z = " + values.z);
 			});
 			callback();
 		} ,
 		function(callback){
-			sensingMouse.notifyAcceleration(function(error){
+			sensingMouse.notifyAcceleration((error) => {
 				console.log("notify Acceleration" + error);
 			});
 			callback();
-		}
-		/*
-		function(callback){
-			sensingMouse.notifyYAxis(function(error){
-				console.log("Y = " + error);
-			});
-			callback();
 		} ,
 		function(callback){
-			sensingMouse.notifyZAxis(function(error){
-				console.log("Z = " + error);
+			sensingMouse.notifyAM2321((error) => {
+				console.log("notify AM2321" + error);
 			});
 			callback();
-		} ,
+		},
 		function(callback){
-			sensingMouse.notifyTemperature(function(error){
-				console.log("Temperature = " + error);
+			sensingMouse.notifyHeartRate((error) => {
+				console.log("Notify HeartRate");
 			});
 			callback();
-		} ,
-		function(callback){
-			sensingMouse.notifyHumidity(function(error){
-				console.log("Humidity = " + error);
-			});
-			callback();
-		} ,
+		},
 		function(callback){
 			sensingMouse.readHeartRateSensorLocation(function(error , location){
 				console.log("Location = " + location);
 			});
 			callback();
-		} ,
-		function(callback){
-			sensingMouse.notifyHeartRate((error) => {
-				console.log("HeartRate = " + error);
-			});
-			callback();
 		}
-		*/
 	]);
 });
