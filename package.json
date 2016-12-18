@@ -9,6 +9,7 @@
   "author": "naoki-ma",
   "license": "ISC",
   "dependencies": {
+    "electron-rebuild": "^1.4.0",
     "noble-device": "^1.4.1"
   },
   "devDependencies": {
