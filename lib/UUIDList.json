@@ -1,26 +1,44 @@
 {
-	"AdvertisementService": {
-		"UUID" : "2109d77c582c40380000000000000000" ,
-		"Characteristic" : {
-		}
-	} ,
-	"AccelerationService" : {
-		"UUID" : "2109d77c582c40380001000000000000" ,
-		"Characteristic" : {
-			"Measurement" : "2109d77c582c40380001000000000001"
-		}
-	} ,
-	"AM2321Service" : {
-		"UUID" : "2109d77c582c40380002000000000000" ,
-		"Characteristic" : {
-			"Measurement" : "2109d77c582c40380002000000000001"
-		}
-	} ,
-	"HeartRateService" : {
-		"UUID" : "180d" ,
-		"Characteristic" : {
-			"Measurement" : "2a37",
-			"Location" : "2a38"
-		}
-	}
+  "AdvertisementService": {
+    "UUID": "6c5c4f5b92ea4c600000000000000000",
+    "Characteristic": {
+    }
+  },
+  "AccelerationService": {
+    "UUID": "6c5c4f5b92ea4c600001000000000000",
+    "Characteristic": {
+      "Measurement": "6c5c4f5b92ea4c600001000000000001"
+    }
+  },
+  "AM2321Service": {
+    "UUID": "6c5c4f5b92ea4c600002000000000000",
+    "Characteristic": {
+      "Measurement": "6c5c4f5b92ea4c600002000000000001"
+    }
+  },
+  "HeartRateService": {
+    "UUID": "180d",
+    "Characteristic": {
+      "Measurement": "2a37",
+      "Location": "2a38"
+    }
+  },
+  "GripForceService": {
+    "UUID": "6c5c4f5b92ea4c600004000000000000",
+    "Characteristic": {
+      "Measurement": "6c5c4f5b92ea4c600004000000000001"
+    }
+  },
+  "ClickForceService": {
+    "UUID": "6c5c4f5b92ea4c600003000000000000",
+    "Characteristic": {
+      "Measurement": "6c5c4f5b92ea4c600003000000000001"
+    }
+  },
+  "GSRService": {
+    "UUID": "6c5c4f5b92ea4c600005000000000000",
+    "Characteristic": {
+      "Measurement": "6c5c4f5b92ea4c600005000000000001"
+    }
+  }
 }

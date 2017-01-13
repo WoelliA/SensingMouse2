@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "electron-rebuild": "^1.4.0",
-    "noble-device": "^1.4.1"
+    "noble-device": "^1.4.1",
+    "csv-write-stream": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^3.10.2"
