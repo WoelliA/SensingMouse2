@@ -1,20 +1,21 @@
 {
-	"name": "SensingMouse",
-	"version": "0.1.0",
-	"description": "Project OWL",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "naoki-ma",
-	"license": "ISC",
-	"dependencies": {
-		"noble-device": "^1.4.1",
-		"csv-write-stream": "^2.0.0"
-	},
-	"devDependencies": {
-		"async": "^2.1.4",
-		"electron-rebuild": "^1.4.0",
-		"eslint": "^3.10.2"
-	}
+  "name": "SensingMouse",
+  "version": "0.1.0",
+  "description": "Project OWL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "naoki-ma",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^1.1.0",
+    "csv-write-stream": "^2.0.0",
+    "noble-device": "^1.4.1"
+  },
+  "devDependencies": {
+    "async": "^2.1.4",
+    "electron-rebuild": "^1.4.0",
+    "eslint": "^3.10.2"
+  }
 }
