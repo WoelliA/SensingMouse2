@@ -1,8 +1,14 @@
 var async = require("async");
 var sensingMouse = require("./index");
-var csv = require("csv")
-var fs = require('fs');
-var format = require('date-format');
+var csv = require("csv");
+var fs = require("fs");
+var format = require("date-format");
+
+const MouseIDList = require("./MouseID.json");
+if(process.argv.length === 3){
+	var MouseNum = process.argv[2];
+	var MouseID = MouseIDList[MouseNum];
+}
 
 const stringifierAcc = csv.stringify();
 const accelerationWS = fs.createWriteStream("Acceleration.csv", {encoding: "utf-8"});
@@ -28,7 +34,7 @@ const stringifierHR = csv.stringify();
 const HRWS = fs.createWriteStream("HeartRate.csv", {encoding: "utf-8"});
 stringifierHR.pipe(HRWS);
 
-sensingMouse.discover((sensingMouse) => {
+sensingMouse.discoverById(MouseID , (sensingMouse) => {
 	console.log("Discover : " + sensingMouse);
 
 	sensingMouse.once("disconnect",
@@ -43,6 +49,7 @@ sensingMouse.discover((sensingMouse) => {
 			let timeStamp = format('yyyy:MM:dd:hh:mm:ss.SSS', new Date());
 			values["ts"] = timeStamp;
 			stringifierAcc.write(values);
+			console.log(values);
 		});
 
 	sensingMouse.on("AM2321ValueChange",
