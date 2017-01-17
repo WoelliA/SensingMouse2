@@ -10,6 +10,10 @@ if(process.argv.length === 3){
 	var MouseID = MouseIDList[MouseNum];
 }
 
+if(typeof MouseID === "undefined"){
+	process.exit(1);
+}
+
 const stringifierAcc = csv.stringify();
 const accelerationWS = fs.createWriteStream("Acceleration.csv", {encoding: "utf-8"});
 stringifierAcc.pipe(accelerationWS);
