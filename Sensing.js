@@ -15,27 +15,27 @@ if(typeof MouseID === "undefined"){
 }
 
 const stringifierAcc = csv.stringify();
-const accelerationWS = fs.createWriteStream("Acceleration.csv", {encoding: "utf-8"});
+const accelerationWS = fs.createWriteStream("Acceleration_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierAcc.pipe(accelerationWS);
 
 const stringifierAM2321 = csv.stringify();
-const AM2321WS = fs.createWriteStream("TemperatureHumidity.csv", {encoding: "utf-8"});
+const AM2321WS = fs.createWriteStream("TemperatureHumidity_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierAM2321.pipe(AM2321WS);
 
 const stringifierClick = csv.stringify();
-const clickWS = fs.createWriteStream("ClickForce.csv", {encoding: "utf-8"});
+const clickWS = fs.createWriteStream("ClickForce_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierClick.pipe(clickWS);
 
 const stringifierGrip = csv.stringify();
-const gripWS = fs.createWriteStream("GripForce.csv", {encoding: "utf-8"});
+const gripWS = fs.createWriteStream("GripForce_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierGrip.pipe(gripWS);
 
 const stringifierGSR = csv.stringify();
-const GSRWS = fs.createWriteStream("GSR.csv", {encoding: "utf-8"});
+const GSRWS = fs.createWriteStream("GSR_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierGSR.pipe(GSRWS);
 
 const stringifierHR = csv.stringify();
-const HRWS = fs.createWriteStream("HeartRate.csv", {encoding: "utf-8"});
+const HRWS = fs.createWriteStream("HeartRate_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierHR.pipe(HRWS);
 
 sensingMouse.discoverById(MouseID , (sensingMouse) => {
