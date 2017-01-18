@@ -1,34 +1,44 @@
 var async = require("async");
 var sensingMouse = require("./index");
-var csv = require("csv")
-var fs = require('fs');
-var format = require('date-format');
+var csv = require("csv");
+var fs = require("fs");
+var format = require("date-format");
+
+const MouseIDList = require("./MouseID.json");
+if(process.argv.length === 3){
+	var MouseNum = process.argv[2];
+	var MouseID = MouseIDList[MouseNum];
+}
+
+if(typeof MouseID === "undefined"){
+	process.exit(1);
+}
 
 const stringifierAcc = csv.stringify();
-const accelerationWS = fs.createWriteStream("Acceleration.csv", {encoding: "utf-8"});
+const accelerationWS = fs.createWriteStream("Acceleration_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierAcc.pipe(accelerationWS);
 
 const stringifierAM2321 = csv.stringify();
-const AM2321WS = fs.createWriteStream("TemperatureHumidity.csv", {encoding: "utf-8"});
+const AM2321WS = fs.createWriteStream("TemperatureHumidity_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierAM2321.pipe(AM2321WS);
 
 const stringifierClick = csv.stringify();
-const clickWS = fs.createWriteStream("ClickForce.csv", {encoding: "utf-8"});
+const clickWS = fs.createWriteStream("ClickForce_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierClick.pipe(clickWS);
 
 const stringifierGrip = csv.stringify();
-const gripWS = fs.createWriteStream("GripForce.csv", {encoding: "utf-8"});
+const gripWS = fs.createWriteStream("GripForce_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierGrip.pipe(gripWS);
 
 const stringifierGSR = csv.stringify();
-const GSRWS = fs.createWriteStream("GSR.csv", {encoding: "utf-8"});
+const GSRWS = fs.createWriteStream("GSR_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierGSR.pipe(GSRWS);
 
 const stringifierHR = csv.stringify();
-const HRWS = fs.createWriteStream("HeartRate.csv", {encoding: "utf-8"});
+const HRWS = fs.createWriteStream("HeartRate_" + MouseNum + format("_yyyy_MM_dd_hh_mm_ss_SSS", new Date()) + ".csv", {encoding: "utf-8"});
 stringifierHR.pipe(HRWS);
 
-sensingMouse.discover((sensingMouse) => {
+sensingMouse.discoverById(MouseID , (sensingMouse) => {
 	console.log("Discover : " + sensingMouse);
 
 	sensingMouse.once("disconnect",
@@ -43,6 +53,7 @@ sensingMouse.discover((sensingMouse) => {
 			let timeStamp = format('yyyy:MM:dd:hh:mm:ss.SSS', new Date());
 			values["ts"] = timeStamp;
 			stringifierAcc.write(values);
+			console.log(values);
 		});
 
 	sensingMouse.on("AM2321ValueChange",
