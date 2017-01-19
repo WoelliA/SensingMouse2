@@ -9,7 +9,7 @@ if(process.argv.length === 3){
 	var MouseNum = process.argv[2];
 	var MouseID = MouseIDList[MouseNum];
 }
-
+console.log(MouseID);
 if(typeof MouseID === "undefined"){
 	process.exit(1);
 }
